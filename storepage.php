@@ -1,4 +1,23 @@
-﻿<!DOCTYPE html>
+<?php 
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "404shop";
+
+$con = new mysqli($host,$user,$pass,$db);
+
+
+
+
+//include '#.php';
+   
+if(isset($_SESSION['#'])) {
+    header("location:#.php");
+}
+
+?>
+
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -32,8 +51,10 @@
 		</div>
 	</nav>
 
-	<div class="row bg-secondary">
-		<div class="col-md-3">
+	<div class="container-fluid bg-secondary">
+    <br>
+    <div class="row">
+		<div class="col-md-3 hidden-lg-down">
 			<div class="card">
 				<article class="card-group-item">
 					<header class="card-header">
@@ -68,75 +89,44 @@
 		</div>
 
 		<div class="col-lg-6">
-				
-			<div class="row">
-				<div class="col-lg-4 col-md-6 mb-4">
+            <div class="row">
+
+        <?php 
+
+        $sql = "SELECT jenis, harga, deskripsi, foto FROM hewan";
+        $table=mysqli_query($con,$sql);
+        while($row=mysqli_fetch_assoc($table)) {
+                $jenis=$row["jenis"];
+                $harga=$row["harga"];
+                $deskripsi=$row["deskripsi"];
+                $foto=$row["foto"];
+        echo  '			
+			    <div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="aset/img/404.png" alt="barang dijual" /></a>
+						<a href="#"><img class="card-img-top" src="'.$foto.'" alt="barang dijual" /></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">404 Logo</a>
+								<a href="#">'.$jenis.'</a>
 							</h4>
-							<h5>Rp 30.000,-</h5>
+							<h5>'.$harga.'</h5>
 							<p class="card-text">
-								Stiker Logo 404 xD
+								'.$deskripsi.'
 							</p>
 						</div>
 					</div>
 				</div>
+            ';
+        }
 
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="aset/img/404.png" alt="barang dijual" /></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">404 Logo</a>
-							</h4>
-							<h5>Rp 30.000,-</h5>
-							<p class="card-text">
-								Stiker Logo 404 xD
-							</p>
-						</div>
-					</div>
-				</div>
+        ?>
 
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="aset/img/404.png" alt="barang dijual" /></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">404 Logo</a>
-							</h4>
-							<h5>Rp 30.000,-</h5>
-							<p class="card-text">
-								Stiker Logo 404 xD
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="aset/img/404.png" alt="barang dijual" /></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">404 Logo</a>
-							</h4>
-							<h5>Rp 30.000,-</h5>
-							<p class="card-text">
-								Stiker Logo 404 xD
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
+            </div>
+        </div>
+        
 	   	<div class="col-lg-3">
-	   		<a>Selamat Datang</a><br />
-	   		<a>User Info Disini</a><br />
-	   		<a>Keranjang Basketnya Disini Agak Bawahan</a>
+	   		<div class="jumbotron">Selamat Datang, Silahkan<a href="#"> Login </a>Terlebih Dahulu</div>
 	   	</div>
+    </div>
 	</div>
 </body>
 </html>
