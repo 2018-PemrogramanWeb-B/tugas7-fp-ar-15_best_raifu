@@ -6,10 +6,11 @@ $db = "404shop";
 
 $con = new mysqli($host,$user,$pass,$db);
 
+
 //include '#.php';
    
 if(isset($_SESSION['#'])) {
-    header("location:logged_in.php");
+    header("location:storepage.php");
 }
 
 ?>
@@ -38,6 +39,9 @@ if(isset($_SESSION['#'])) {
 				<li class="nav-item">
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
+				<li class="navbar-nav">
+					<a class="nav-link" href="userpage_awal.html">Profile</a>
+				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Contact</a>
 				</li>
@@ -48,7 +52,7 @@ if(isset($_SESSION['#'])) {
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container-fluid">
     <br>
     <div class="row">
 
@@ -64,7 +68,8 @@ if(isset($_SESSION['#'])) {
 		<div class="col-lg-6">
             <div class="row">
 
-		<?php 
+        <?php 
+
 		
 		$link='';
 		if(isset($_GET['link'])) {
@@ -84,8 +89,6 @@ if(isset($_SESSION['#'])) {
 			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan";
 		}
 
-		$link=''; 	
-        
         $table=mysqli_query($con,$sql);
         while($row=mysqli_fetch_assoc($table)) {
                 $jenis=$row["jenis"];
@@ -116,7 +119,7 @@ if(isset($_SESSION['#'])) {
         </div>
         
 	   	<div class="col-lg-3">
-	   		<div class="jumbotron">Selamat Datang, Silahkan <a href="login.html">Masuk </a>Terlebih Dahulu</div>
+	   		<div class="jumbotron">Selamat Datang, #variable_username </div>
 	   	</div>
     </div>
 	</div>
