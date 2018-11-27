@@ -40,7 +40,7 @@
     <h1>Sign In</h1>
     <p>Welcome To Our Shop</p>
   </header>
-  <form>
+  <form action="login.php" method="post" onSubmit="return validasi()">
     <div class="input-section email-section">
       <input class="email" type="email" placeholder="ENTER YOUR E-MAIL HERE" autocomplete="off"/>
       <div class="animated-button"><span class="icon-paper-plane"><i class="fa fa-envelope-o"></i></span><span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
@@ -56,7 +56,19 @@
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script  src="js/index.js"></script>
+<script type="text/javascript">
+	function validasi() {
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+		if (username != "" && password!="") {
+			return true;
+		}else{
+			alert('Username dan Password harus di isi !');
+			return false;
+		}
+	}
 
+</script>
 
 </body>
 
