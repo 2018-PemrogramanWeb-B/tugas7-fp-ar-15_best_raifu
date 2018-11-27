@@ -117,9 +117,13 @@ if(isset($_SESSION['#'])) {
 
             </div>
         </div>
-        
+         
 	   	<div class="col-lg-3">
-	   		<div class="jumbotron">Selamat Datang, #variable_username </div>
+			   
+			<?php
+			$name="SELECT fullname FROM user WHERE email=''"; ?>
+				
+	   		<div class="jumbotron">Selamat Datang, <?php $name ?> </div>
 	   	</div>
     </div>
 	</div>
