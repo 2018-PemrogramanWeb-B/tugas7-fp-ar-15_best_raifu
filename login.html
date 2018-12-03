@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
 
+
 <head>
   <meta charset="UTF-8">
   <title>LOG IN</title>
@@ -40,15 +41,17 @@
     <h1>Sign In</h1>
     <p>Welcome To Our Shop</p>
   </header>
-  <form>
+  <form action="loginscript.php" method="POST">
     <div class="input-section email-section">
-      <input class="email" type="email" placeholder="ENTER YOUR E-MAIL HERE" autocomplete="off"/>
+      <form action="" method="POST">
+          <input class="email" type="email" placeholder="ENTER YOUR E-MAIL HERE" autocomplete="off" method=/>
       <div class="animated-button"><span class="icon-paper-plane"><i class="fa fa-envelope-o"></i></span><span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
     </div>
     <div class="input-section password-section folded">
-      <input class="password" type="text" placeholder="ENTER YOUR ADDRESS HERE"/>
+      <input class="password" type="password" placeholder="ENTER YOUR PASSWORD HERE"/>
       <div class="animated-button"><span class="icon-lock"><i class="fa fa-lock"></i></span><span class="next-button password"><i class="fa fa-arrow-up"></i></span></div>
     </div>
+      </form>
     <div class="success">
       <p>LOGGED IN</p>
     </div>
