@@ -116,7 +116,7 @@ if(isset($_SESSION['#'])) {
         </div>
         
 	   	<div class="col-lg-3">
-	   		<div class="jumbotron">Selamat Datang, Silahkan <a href="login.html">Masuk </a>Terlebih Dahulu</div>
+	   		<div class="jumbotron">Selamat Datang, Silahkan <a href="login.php">Masuk </a>Terlebih Dahulu</div>
 	   	</div>
     </div>
 	</div>
