@@ -1,0 +1,75 @@
+/*fonts*/
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
+
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+
+html, body{
+    background: url(register.jpg) no-repeat center center fixed; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+body{
+  counter-reset:section;
+  text-align:left;
+  margin-left: 15%;
+  font-family:"Pt Sans", helvetica, sans-serif;
+}
+
+.container{
+  position:relative;
+  top:10px;
+}
+  
+.container h1{
+    text-align:left;
+    color:#fff;
+    font-weight:100;
+    font-size:2em; 
+    margin-bottom:10px;
+    margin-top: 8%;
+}
+
+form{
+  margin-top:25px;
+  display:inline-block;
+}
+
+p{
+    color: rgb(255, 255, 255);
+}
+
+.container span{
+    margin-bottom:22px; 
+    display:inline-block;
+}
+
+.container span:last-child{
+   margin-bottom:-11px;
+}
+
+input{
+  border:none;
+  outline:none;
+  display:inline-block;
+  height:34px;
+  vertical-align:middle;
+  position:relative;
+  bottom:14px;
+  right:9px;
+  border-radius:22px;
+  width:220px;
+  box-sizing:border-box;
+  padding:0 18px; 
+}
+
+input[type="button"]{ 
+  background:rgb(255, 255, 255) ! important;
+  color:rgb(0, 0, 0);
+  left: 50px;
+  top:25px; 
+  width:100px;
+  cursor:pointer;
+}
