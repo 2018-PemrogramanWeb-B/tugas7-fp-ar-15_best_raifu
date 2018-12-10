@@ -1,18 +1,9 @@
 <?php 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "404shop";
-
-$con = new mysqli($host,$user,$pass,$db);
-
-
-//include '#.php';
+include 'storedb.php';
    
-if(isset($_SESSION['#'])) {
-    header("location:storepage.php");
-}
-
+#if(!isset($_SESSION['#'])) {
+#    header("location:storepage.php");
+#}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +31,7 @@ if(isset($_SESSION['#'])) {
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
 				<li class="navbar-nav">
-					<a class="nav-link" href="userpage_awal.html">Profile</a>
+					<a class="nav-link" href="userpage_awal.php">Profile</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Contact</a>
@@ -70,33 +61,16 @@ if(isset($_SESSION['#'])) {
 
         <?php 
 
-		
-		$link='';
-		if(isset($_GET['link'])) {
-			$link=$_GET['link'];
-		}
-
-		if($link=='Kucing') {
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan WHERE tipe='Cat'";	
-		}
-		else if($link=='Anjing') {
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan WHERE tipe='Dog'";	
-		}
-		else if($link=='Hamster') {
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan WHERE tipe='Hamster'";	
-		}
-		else{
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan";
-		}
-
-        $table=mysqli_query($con,$sql);
+		$table=mysqli_query($con,$sql);
         while($row=mysqli_fetch_assoc($table)) {
+				$id=$row['id'];
                 $jenis=$row["jenis"];
                 $tipe=$row["tipe"];
                 $harga=$row["harga"];
                 $deskripsi=$row["deskripsi"];
                 $foto=$row["foto"];
-        echo  '			
+		echo  '			
+			
 			    <div class="col-lg-4 col-md-6 mb-4 tofil" id='.$tipe.'>
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top" src="'.$foto.'" alt="barang dijual" /></a>
@@ -108,6 +82,10 @@ if(isset($_SESSION['#'])) {
 							<p class="card-text">
 								'.$deskripsi.'
 							</p>
+						</div>
+						<div class="cart-action">
+							<input type="text" class="btn btn-primary" name="quantity" value="1" size="2" />
+							<input class="btn btn-primary" type="submit" value="Add to Cart" class="btnAddAction" />
 						</div>
 					</div>
 				</div>
@@ -121,11 +99,19 @@ if(isset($_SESSION['#'])) {
 	   	<div class="col-lg-3">
 			   
 			<?php
-			$name="SELECT fullname FROM user WHERE email=''"; ?>
+			$name="SELECT fullname FROM user WHERE username=''"; ?>
 				
-	   		<div class="jumbotron">Selamat Datang, <?php $name ?> </div>
-	   	</div>
-    </div>
+	   		<div class="jumbotron">Selamat Datang, <?php $name ?> 
+				<br>
+				<br>
+				<div id="shopping-cart">
+				<div class="txt-heading">Shopping Cart</div>
+				<a href="logged_in.php?action=empty">Empty Cart</a>
+			</div>   
+			</div>
+			<br>
+				
+    	</div>
 	</div>
 </body>
 </html>

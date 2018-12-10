@@ -1,12 +1,5 @@
 <?php 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "404shop";
-
-$con = new mysqli($host,$user,$pass,$db);
-
-//include '#.php';
+include 'storedb.php';
    
 if(isset($_SESSION['#'])) {
     header("location:logged_in.php");
@@ -42,7 +35,7 @@ if(isset($_SESSION['#'])) {
 					<a class="nav-link" href="#">Contact</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">About Us</a>
+					<a class="nav-link" href="#">About</a>
 				</li>
 			</ul>
 		</div>
@@ -65,29 +58,12 @@ if(isset($_SESSION['#'])) {
             <div class="row">
 
 		<?php 
-		
-		$link='';
-		if(isset($_GET['link'])) {
-			$link=$_GET['link'];
-		}
-
-		if($link=='Kucing') {
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan WHERE tipe='Cat'";	
-		}
-		else if($link=='Anjing') {
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan WHERE tipe='Dog'";	
-		}
-		else if($link=='Hamster') {
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan WHERE tipe='Hamster'";	
-		}
-		else{
-			$sql = "SELECT tipe, jenis, harga, deskripsi, foto FROM hewan";
-		}
 
 		$link=''; 	
-        
+		
         $table=mysqli_query($con,$sql);
         while($row=mysqli_fetch_assoc($table)) {
+				$id=$row['id'];
                 $jenis=$row["jenis"];
                 $tipe=$row["tipe"];
                 $harga=$row["harga"];
@@ -99,7 +75,7 @@ if(isset($_SESSION['#'])) {
 						<a href="#"><img class="card-img-top" src="'.$foto.'" alt="barang dijual" /></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">'.$jenis.'</a>
+								<a href="storeitem.php">'.$jenis.'</a>
 							</h4>
 							<h5>'.$harga.'</h5>
 							<p class="card-text">
