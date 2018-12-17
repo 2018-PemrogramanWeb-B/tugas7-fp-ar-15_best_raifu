@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>LOG IN</title>
+  <title>Masuk</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -33,30 +33,58 @@
 			</ul>
 		</div>
 	</nav>
+<br>
+<br>
 
 
-<div class="back"></div>
-<div class="registration-form">
-  <header>
-    <h1>Sign In</h1>
-    <p>Welcome To Our Shop</p>
-  </header>
-  <form action="login.php" method="post" onSubmit="return validasi()">
-    <div class="input-section email-section">
-      <form action="" method="POST">
-          <input class="email" type="email" placeholder="ENTER YOUR E-MAIL HERE" autocomplete="off" method=/>
-      <div class="animated-button"><span class="icon-paper-plane"><i class="fa fa-envelope-o"></i></span><span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
-    </div>
-    <div class="input-section password-section folded">
-      <input class="password" type="password" placeholder="ENTER YOUR PASSWORD HERE"/>
-      <div class="animated-button"><span class="icon-lock"><i class="fa fa-lock"></i></span><span class="next-button password"><i class="fa fa-arrow-up"></i></span></div>
-    </div>
-      </form>
-    <div class="success">
-      <p>LOGGED IN</p>
-    </div>
-  </form>
+<div class="container">
+<div class="row" >
+
+<div class="col-md-4">
+	<form action="/examples/actions/confirmation.php" method="post">
+        <h2 class="text-center">Daftar</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" name="username" required="required">
+        </div>
+				<div class="form-group">
+            <input type="text" class="form-control" placeholder="Email" name="email" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" name="password" required="required">
+        </div>
+				<div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirm" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+        </div>     
+    </form>
 </div>
+
+<div class="col-md-4">
+</div>
+
+<div class="col-md-4">
+	<form action="/examples/actions/confirmation.php" method="post">
+        <h2 class="text-center">Masuk</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>        
+    </form>
+</div>
+</div>
+</div>
+
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script  src="js/index.js"></script>
 <script type="text/javascript">

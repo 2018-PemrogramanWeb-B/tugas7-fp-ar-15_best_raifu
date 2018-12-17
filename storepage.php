@@ -75,7 +75,7 @@ if(isset($_SESSION['#'])) {
 						<a href="#"><img class="card-img-top" src="'.$foto.'" alt="barang dijual" /></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="storeitem.php">'.$jenis.'</a>
+								<a href="?'.$jenis.'">'.$jenis.'</a>
 							</h4>
 							<h5>'.$harga.'</h5>
 							<p class="card-text">

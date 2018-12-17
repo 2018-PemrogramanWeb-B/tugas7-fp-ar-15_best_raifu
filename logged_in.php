@@ -70,13 +70,12 @@ include 'storedb.php';
                 $deskripsi=$row["deskripsi"];
                 $foto=$row["foto"];
 		echo  '			
-			
 			    <div class="col-lg-4 col-md-6 mb-4 tofil" id='.$tipe.'>
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top" src="'.$foto.'" alt="barang dijual" /></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">'.$jenis.'</a>
+								<a href="?'.$jenis.'">'.$jenis.'</a>
 							</h4>
 							<h5>'.$harga.'</h5>
 							<p class="card-text">
@@ -84,8 +83,10 @@ include 'storedb.php';
 							</p>
 						</div>
 						<div class="cart-action">
-							<input type="text" class="btn btn-primary" name="quantity" value="1" size="2" />
-							<input class="btn btn-primary" type="submit" value="Add to Cart" class="btnAddAction" />
+							<form method="post">
+								<input type="text" class="btn btn-primary" name="qty" value="1" size="2" />
+								<input class="btn btn-primary" type="submit" value="Add to Cart" name="'.$jenis.'"/>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -99,13 +100,23 @@ include 'storedb.php';
 	   	<div class="col-lg-3">
 			   
 			<?php
-			$name="SELECT fullname FROM user WHERE username=''"; ?>
+			$name="SELECT displayname FROM user WHERE username=''"; ?>
 				
 	   		<div class="jumbotron">Selamat Datang, <?php $name ?> 
 				<br>
 				<br>
 				<div id="shopping-cart">
 				<div class="txt-heading">Shopping Cart</div>
+				<?php 
+					$aa="";
+					$qty="";
+					if(isset($_POST[$jenis])) {
+						$qty=$_POST['qty'];
+						$aa=$_POST['add'];
+						echo $qty;
+					}
+					
+				?>
 				<a href="logged_in.php?action=empty">Empty Cart</a>
 			</div>   
 			</div>
@@ -113,5 +124,6 @@ include 'storedb.php';
 				
     	</div>
 	</div>
+
 </body>
 </html>
