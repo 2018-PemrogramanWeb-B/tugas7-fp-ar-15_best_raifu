@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" >
 
-
 <head>
   <meta charset="UTF-8">
   <title>Masuk</title>
@@ -65,13 +64,13 @@
 </div>
 
 <div class="col-md-4">
-	<form action="/examples/actions/confirmation.php" method="post">
+	<form action="cek.php" method="POST">
         <h2 class="text-center">Masuk</h2>       
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
+            <input type="text" class="form-control" placeholder="Email" required="required" name="email">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
+            <input type="password" class="form-control" placeholder="Password" required="required" name="password">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
@@ -84,22 +83,6 @@
 </div>
 </div>
 </div>
-
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script  src="js/index.js"></script>
-<script type="text/javascript">
-	function validasi() {
-		var username = document.getElementById("username").value;
-		var password = document.getElementById("password").value;
-		if (username != "" && password!="") {
-			return true;
-		}else{
-			alert('Username dan Password harus di isi !');
-			return false;
-		}
-	}
-
-</script>
 
 </body>
 

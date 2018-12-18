@@ -1,11 +1,6 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "404shop";
-
-$con= new mysqli($host,$user,$pass);
+include 'dbconnect.php';
 
 if($con->select_db($db)==false) {
 	$sql = "CREATE DATABASE $db";
@@ -44,7 +39,6 @@ if($con->select_db($db)==false) {
 	}
 }
 
-else $con = new mysqli($host,$user,$pass,$db);
 
 $link='';
 		if(isset($_GET['link'])) {
