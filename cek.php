@@ -11,6 +11,7 @@
     $row=$check->fetch_assoc();
 
     if(!empty($row)) {
+        $_SESSION["user"]=$email;
         header("location: logged_in.php");
     }
     else {

@@ -40,7 +40,7 @@
 <div class="row" >
 
 <div class="col-md-4">
-	<form action="/examples/actions/confirmation.php" method="post">
+	<form action="register.php" method="post">
         <h2 class="text-center">Daftar</h2>       
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" name="username" required="required">
@@ -56,7 +56,7 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-        </div>     
+        </div> 
     </form>
 </div>
 
@@ -74,10 +74,6 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
-        </div>
-        <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="pull-right">Forgot Password?</a>
         </div>        
     </form>
 </div>

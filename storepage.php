@@ -1,8 +1,9 @@
 <?php 
 include 'storedb.php';
+include 'session.php';
    
-if(isset($_SESSION['#'])) {
-    header("location:logged_in.php");
+if(isset($_SESSION["user"])) {
+    header("location: logged_in.php");
 }
 
 ?>
@@ -32,16 +33,13 @@ if(isset($_SESSION['#'])) {
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Contact</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="about.php">About</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container-fluid">
     <br>
     <div class="row">
 

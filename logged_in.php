@@ -1,9 +1,10 @@
 <?php 
 include 'storedb.php';
-   
-#if(!isset($_SESSION['#'])) {
-#    header("location:storepage.php");
-#}
+include 'session.php';
+
+if(!isset($_SESSION["user"])) {
+   header('location: storepage.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +32,13 @@ include 'storedb.php';
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
 				<li class="navbar-nav">
-					<a class="nav-link" href="userpage_awal.php">Profile</a>
+					<a class="nav-link" href="userpageawal.php">Profile</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Contact</a>
+					<a class="nav-link" href="about.php">About Us</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">About Us</a>
+					<a class="nav-link" href="logout.php">Logout</a>
 				</li>
 			</ul>
 		</div>
@@ -98,11 +99,8 @@ include 'storedb.php';
         </div>
          
 	   	<div class="col-lg-3">
-			   
-			<?php
-			$name="SELECT displayname FROM user WHERE username=''"; ?>
 				
-	   		<div class="jumbotron">Selamat Datang, <?php $name ?> 
+	   		<div class="jumbotron">Selamat Datang 
 				<br>
 				<br>
 				<div id="shopping-cart">
@@ -110,11 +108,7 @@ include 'storedb.php';
 				<?php 
 					$aa="";
 					$qty="";
-					if(isset($_POST[$jenis])) {
-						$qty=$_POST['qty'];
-						$aa=$_POST['add'];
-						echo $qty;
-					}
+					
 					
 				?>
 				<a href="logged_in.php?action=empty">Empty Cart</a>
