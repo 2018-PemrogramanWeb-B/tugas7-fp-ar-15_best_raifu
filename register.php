@@ -3,7 +3,6 @@
 
     session_start();
 
-    $rerror=" ";
     $name=$_POST['username'];
     $email=$_POST['email'];
     $pass=$_POST['password'];

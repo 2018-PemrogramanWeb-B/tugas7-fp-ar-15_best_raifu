@@ -24,9 +24,6 @@
 					<a class="nav-link" href="storepage.php">Store</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Contact</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="#">About Us</a>
 				</li>
 			</ul>
@@ -51,7 +48,7 @@
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password" name="password" required="required">
         </div>
-				<div class="form-group">
+			<div class="form-group">
             <input type="password" class="form-control" placeholder="Confirm Password" name="password2" required="required">
         </div>
         <div class="form-group">

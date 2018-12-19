@@ -1,10 +1,12 @@
 <?php 
 include 'storedb.php';
-include 'session.php';
 
-if(!isset($_SESSION["user"])) {
+session_start();
+
+if(empty($_SESSION["user"])) {
    header('location: storepage.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -71,26 +73,25 @@ if(!isset($_SESSION["user"])) {
                 $deskripsi=$row["deskripsi"];
                 $foto=$row["foto"];
 		echo  '			
-			    <div class="col-lg-4 col-md-6 mb-4 tofil" id='.$tipe.'>
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="'.$foto.'" alt="barang dijual" /></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="?'.$jenis.'">'.$jenis.'</a>
-							</h4>
-							<h5>'.$harga.'</h5>
-							<p class="card-text">
-								'.$deskripsi.'
-							</p>
-						</div>
-						<div class="cart-action">
-							<form method="post">
-								<input type="text" class="btn btn-primary" name="qty" value="1" size="2" />
-								<input class="btn btn-primary" type="submit" value="Add to Cart" name="'.$jenis.'"/>
-							</form>
+			<div class="col-lg-4 col-md-6 mb-4 tofil" id='.$tipe.'>
+				<div class="card h-100">
+					<a href="#"><img class="card-img-top" src="'.$foto.'" alt="barang dijual" /></a>
+					<div class="card-body">
+						<h4 class="card-title">
+							<a href="?'.$jenis.'">'.$jenis.'</a>
+						</h4>
+						<h5>'.$harga.'</h5>
+						<p class="card-text">
+							'.$deskripsi.'
+						</p>
+					</div>
+					<div class="row justify-content-md-center">
+						<div class="col-md-12">
+						<a type="submit" class="btn btn-primary btn-block" href="pembayaran.php?product-id='.$id.'">Beli</a>
 						</div>
 					</div>
 				</div>
+			</div>
             ';
         }
         ?>
@@ -99,23 +100,15 @@ if(!isset($_SESSION["user"])) {
         </div>
          
 	   	<div class="col-lg-3">
-				
-	   		<div class="jumbotron">Selamat Datang 
-				<br>
-				<br>
-				<div id="shopping-cart">
-				<div class="txt-heading">Shopping Cart</div>
-				<?php 
-					$aa="";
-					$qty="";
-					
-					
-				?>
-				<a href="logged_in.php?action=empty">Empty Cart</a>
-			</div>   
-			</div>
-			<br>
-				
+		
+			<div class="jumbotron">
+			<h6>Selamat Datang <?php 
+				$mail = $_SESSION["user"];
+				$data = mysqli_query($con,"select username from user where email='$mail'");
+				$edit = mysqli_fetch_array($data);
+				echo $edit['username'];
+				?> 
+			</h6>
     	</div>
 	</div>
 

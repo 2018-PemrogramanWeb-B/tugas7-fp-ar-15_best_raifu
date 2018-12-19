@@ -7,7 +7,7 @@
 ?>
 
 <head>
-  <title>user_registration</title>
+  <title>Profil Pengguna</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -46,75 +46,66 @@
 
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
+            <h4>
+            <?php 
 
-
-      <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
-      </div></hr><br>
-
-
-
+                if(!empty($_SESSION['msgr'])) {
+                    print($_SESSION['msgr']);
+                    unset($_SESSION['msgr']);
+                }         
+            ?>
+            </h4>
         </div><!--/col-3-->
-    	<div class="col-sm-9">
+    	<div class="col-md-6">
           <div class="tab-content">
             <div class="tab-pane active" id="home">
 
-                  <form class="form" action="##" method="post" id="registrationForm">
+                  <form action="updatedata.php" method="post">
                       <div class="form-group">
-
                           <div class="col-xs-6">
-                              <label for="name"><h4>Name</h4></label>
-                              <input type="text" class="form-control" name="name" id="name" placeholder="your username" value="<?php echo $edit["username"];?>" title="enter your username.">
+                              <label for="name"><h4>Nama</h4></label>
+                              <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $edit["username"];?>" title="enter your username.">
                           </div>
                       </div>
 
                       <div class="form-group">
 
                           <div class="col-xs-6">
-                              <label for="phone"><h4>Phone</h4></label>
-                              <input type="text" class="form-control" name="phone" id="phone" placeholder="your phone" value="<?php echo $edit["phone"]; ?>" title="enter your phone number if any.">
+                              <label for="phone"><h4>Telepon</h4></label>
+                              <input type="text" class="form-control" name="phone" placeholder="Telepon" value="<?php echo $edit["phone"]; ?>" title="enter your phone number if any.">
                           </div>
                       </div>
                       <div class="form-group">
-
                           <div class="col-xs-6">
                               <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="your email" value="<?php echo $edit["email"]; ?>" title="enter your email.">
+                              <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo $edit["email"]; ?>" title="enter your email.">
                           </div>
                       </div>
                       <div class="form-group">
-
                           <div class="col-xs-6">
-                              <label for="location"><h4>Location</h4></label>
-                              <input type="location" class="form-control" id="location" placeholder="your location" value="<?php echo $edit["alamat"]; ?>" title="enter your location">
+                              <label for="location"><h4>Alamat</h4></label>
+                              <input type="location" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $edit["alamat"]; ?>" title="enter your location">
                           </div>
                       </div>
                       <div class="form-group">
-
                           <div class="col-xs-6">
                               <label for="password"><h4>Password</h4></label>
-                              <input type="password" class="form-control" name="password" id="password" placeholder="password" value="<?php echo $edit["katakunci"]; ?>" title="enter your password.">
+                              <input type="password" class="form-control" name="password" placeholder="Password" value="<?php echo $edit["katakunci"]; ?>" title="enter your password.">
                           </div>
                       </div>
                       <div class="form-group">
-
                           <div class="col-xs-6">
                             <label for="password2"><h4>Verify</h4></label>
-                              <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" value="<?php echo $edit["katakunci"]; ?>" title="enter your password2.">
+                              <input type="password" class="form-control" name="password2" placeholder="Verify" value="<?php echo $edit["katakunci"]; ?>" title="enter your password2.">
                           </div>
                       </div>
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                               	<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                              	<button class="btn btn-lg btn-success" type="submit"> Save</button>
                             </div>
                       </div>
               	</form>
-
-
 
              </div>
                             </div>

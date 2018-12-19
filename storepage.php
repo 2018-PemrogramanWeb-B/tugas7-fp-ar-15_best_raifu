@@ -1,8 +1,9 @@
 <?php 
 include 'storedb.php';
-include 'session.php';
-   
-if(isset($_SESSION["user"])) {
+
+session_start();
+
+if(!empty($_SESSION["user"])) {
     header("location: logged_in.php");
 }
 
