@@ -6,9 +6,9 @@ $db = "404shop";
 
 $con = mysqli_connect($host,$user,$pass);
 
-if($con->select_db($db)==false) {
+if($con->query("CREATE DATABASE $db") == true) {
 
-    $sql = "CREATE DATABASE $db";
+	$con->close();
 
 	$con = mysqli_connect($host,$user,$pass,$db);
 
@@ -18,9 +18,10 @@ if($con->select_db($db)==false) {
 				jenis varchar(25),
 				harga varchar(25),
 				deskripsi text,
-				foto varchar(200) ")===TRUE ) {
-						
+				foto varchar(200))") == true  ) {
+					echo 'berhasil';						
 				}
+	else echo 'gagal';
 
 	if($con->query("CREATE TABLE user (
 				id int(11) AUTO_INCREMENT PRIMARY KEY,
@@ -28,7 +29,7 @@ if($con->select_db($db)==false) {
 				phone varchar(13),
 				email varchar(50) NOT NULL,
 				address text,
-				password varchar(30) NOT NULL") === TRUE ) {
+				password varchar(30) NOT NULL)") == TRUE ) {
 					
 				}
 
