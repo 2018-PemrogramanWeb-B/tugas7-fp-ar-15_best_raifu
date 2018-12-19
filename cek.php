@@ -11,6 +11,7 @@
     $row=$check->fetch_assoc();
 
     if(empty($row)) {
+        $_SESSION['msg']="Email atau Password Salah";
         header("location: login.php");
     }
     else {

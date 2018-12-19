@@ -37,7 +37,7 @@
 
 
 <div class="container">
-<div class="row" >
+<div class="row justify-content-md-center" >
 
 <div class="col-md-4">
 	<form action="register.php" method="post">
@@ -52,15 +52,25 @@
             <input type="password" class="form-control" placeholder="Password" name="password" required="required">
         </div>
 				<div class="form-group">
-            <input type="password" class="form-control" placeholder="Confirm Password" name="confirm" required="required">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="password2" required="required">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-        </div> 
+            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+        </div>
     </form>
 </div>
 
 <div class="col-md-4">
+    <h4 class="text-center">
+    <?php 
+        session_start();
+
+        if(!empty($_SESSION['msg'])) {
+            print($_SESSION['msg']);
+            unset($_SESSION['msg']);
+        }         
+    ?>
+    </h4>
 </div>
 
 <div class="col-md-4">
@@ -73,13 +83,11 @@
             <input type="password" class="form-control" placeholder="Password" required="required" name="password">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
         </div>        
     </form>
 </div>
 </div>
 </div>
-
 </body>
-
 </html>
