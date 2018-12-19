@@ -27,8 +27,8 @@ if($con->query("CREATE DATABASE $db") == true ) {
 				username varchar(25),
 				phone varchar(13),
 				email varchar(50) NOT NULL,
-				address text,
-				password varchar(30) NOT NULL)") == TRUE ) {
+				alamat text,
+				katakunci varchar(30) NOT NULL)") == TRUE ) {
 					
 				}
 
