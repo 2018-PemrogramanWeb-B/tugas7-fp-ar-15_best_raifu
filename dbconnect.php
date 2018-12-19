@@ -4,12 +4,12 @@ $user = "root";
 $pass = "";
 $db = "404shop";
 
-$con = mysqli_connect($host,$user,$pass);
+$con = new mysqli($host,$user,$pass);
 
-if($con->query("CREATE DATABASE $db") == true) {
+if($con->query("CREATE DATABASE $db") == true ) {
 
 	$con->close();
-
+	
 	$con = mysqli_connect($host,$user,$pass,$db);
 
 	if($con->query("CREATE TABLE hewan (
@@ -19,9 +19,8 @@ if($con->query("CREATE DATABASE $db") == true) {
 				harga varchar(25),
 				deskripsi text,
 				foto varchar(200))") == true  ) {
-					echo 'berhasil';						
+										
 				}
-	else echo 'gagal';
 
 	if($con->query("CREATE TABLE user (
 				id int(11) AUTO_INCREMENT PRIMARY KEY,
