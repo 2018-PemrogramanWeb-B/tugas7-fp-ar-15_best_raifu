@@ -45,19 +45,7 @@
     </nav>
 
     <div class="row">
-  		<div class="col-sm-3"><!--left col-->
-
-
-      <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
-      </div></hr><br>
-
-
-
-        </div><!--/col-3-->
-    	<div class="col-sm-9">
+    	<div class="col-md-6 offset-md-3">
           <div class="tab-content">
             <div class="tab-pane active" id="home">
 
@@ -96,13 +84,6 @@
                           <div class="col-xs-6">
                               <label for="password"><h4>Password</h4></label>
                               <input type="password" class="form-control" name="password" id="password" placeholder="password" value="<?php echo $edit["katakunci"]; ?>" title="enter your password.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-
-                          <div class="col-xs-6">
-                            <label for="password2"><h4>Verify</h4></label>
-                              <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" value="<?php echo $edit["katakunci"]; ?>" title="enter your password2.">
                           </div>
                       </div>
                       <div class="form-group">
