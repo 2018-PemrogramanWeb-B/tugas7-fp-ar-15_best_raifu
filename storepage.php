@@ -6,6 +6,9 @@ session_start();
 if(!empty($_SESSION["user"])) {
     header("location: logged_in.php");
 }
+if(!empty($_SESSION["admin"])) {
+	header('location: product_admin.php');
+ }
 
 ?>
 

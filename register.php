@@ -19,7 +19,7 @@
         header("location: login.php");
     }
     else {
-        $con->query("INSERT INTO user VALUES ('','$name','','$email','','$pass')") ;
+        $con->query("INSERT INTO user VALUES ('','$name','','$email','','$pass','0')") ;
         $_SESSION['msg']='Registrasi Berhasil';
         header("location: login.php");
     }

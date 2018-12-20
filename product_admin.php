@@ -3,7 +3,7 @@ include 'storedb.php';
 
 session_start();
 
-if(empty($_SESSION["user"])) {
+if(empty($_SESSION["admin"])) {
    header('location: storepage.php');
 }
 ?>
@@ -42,12 +42,13 @@ if(empty($_SESSION["user"])) {
 		</div>
 	</nav>
 
+	<div>
   <?php
     require 'dbconnect.php';
     $sql = 'SELECT * FROM hewan';
     $result = mysqli_query($con, $sql);
      ?>
-     <table class="table">
+     <table class="table table-bordered">
        <tr>
        	<th scope="col">Id</th>
        	<th scope="col">Tipe</th>
@@ -63,9 +64,17 @@ if(empty($_SESSION["user"])) {
       		<td> <?php echo $product->jenis; ?> </td>
       		<td> <?php echo $product->harga; ?> </td>
           <td> <?php echo $product->deskripsi; ?> </td>
-      		<td> <a href="edit_admin.php?id= <?php echo $product->id; ?>">Edit</a> <a> or </a> <a href="product_admin.php?id= <?php echo $product->id; ?>" onclick="return confirm('Are you sure to delete this item?')">Delete</a></td>
+      		<td> <a href="edit_admin.php?id= <?php echo $product->id; ?>">Edit</a> <a> or 
+			  </a> <a href="deleteproduct.php?id= <?php echo $product->id; ?>" onclick="return confirm('Are you sure to delete this item?')">Delete</a></td>
       	</tr>
+		
 	    <?php } ?>
 
+		</div>
+
+		<div>
+		</div>
+
 </body>
+<a class="btn btn-primary center-block" href="addproduct.php">Add New</a>
 </html>

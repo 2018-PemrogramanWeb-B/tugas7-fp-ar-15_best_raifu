@@ -28,10 +28,13 @@ if($con->query("CREATE DATABASE $db") == true ) {
 				phone varchar(13),
 				email varchar(50) NOT NULL,
 				alamat text,
-				katakunci varchar(30) NOT NULL)") == TRUE ) {
-					
+				katakunci varchar(30) NOT NULL,
+				akses BOOLEAN NOT NULL)") == TRUE ) {
 				}
 
+	if($con->query("INSERT INTO user VALUES ('1','admin','','admin@email','','admin','1')")===TRUE) {
+
+	}
 	if($con->query("INSERT INTO hewan (tipe,jenis,harga,deskripsi,foto) VALUES ('Dog','Homete!!!!','Rp 900.000,-','Homete!!! Master!!!','aset/img/homete.jpg')")===TRUE) {
 		
 	}

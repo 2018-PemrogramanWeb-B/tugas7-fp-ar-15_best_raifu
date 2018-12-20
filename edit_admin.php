@@ -2,6 +2,10 @@
   session_start();
   include 'dbconnect.php';
 
+  if(empty($_SESSION["admin"])) {
+    header('location: storepage.php');
+ }
+
   if(isset($_GET['id']))
   $sql = "SELECT * FROM hewan WHERE id=".$_GET['id'];
   $result = mysqli_query($con, $sql);
@@ -9,7 +13,7 @@
 ?>
 
 <head>
-  <title>Profil Pengguna</title>
+  <title>List Produk</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -46,20 +50,13 @@
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
             <h4>
-            <?php
-
-                if(!empty($_SESSION['msgr'])) {
-                    print($_SESSION['msgr']);
-                    unset($_SESSION['msgr']);
-                }
-            ?>
             </h4>
         </div><!--/col-3-->
     	<div class="col-md-6">
           <div class="tab-content">
             <div class="tab-pane active" id="home">
 
-                  <form action="updatedata.php" method="post">
+                  <form action="updateproduct.php" method="post">
                       <div class="form-group">
                           <div class="col-xs-6">
                               <label for="tipe"><h4>Tipe</h4></label>
@@ -83,9 +80,16 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                               <label for="deskripsi"><h4>Deskripsi</h4></label>
-                              <input type="location" class="form-control" name="deskripsi" placeholder="Deskripsi" value="<?php echo $product["deskripsi"]; ?>" title="deskripsi">
+                              <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="<?php echo $product["deskripsi"]; ?>" title="deskripsi">
                           </div>
                       </div>
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                              <label for="deskripsi"><h4>Gambar</h4></label>
+                              <input type="file" name="image">
+                          </div>
+                      </div>
+                      <input type="hidden" name="id" value="<?php echo $product["id"]; ?>">
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>

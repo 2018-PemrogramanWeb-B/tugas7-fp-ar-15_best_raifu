@@ -6,7 +6,7 @@
     $email=$_POST['email'];
     $pass=$_POST['password'];
 
-    $sql="SELECT email,katakunci FROM user WHERE email='$email' AND katakunci='$pass'";
+    $sql="SELECT * FROM user WHERE email='$email' AND katakunci='$pass'";
     $check=$con->query($sql);
     $row=$check->fetch_assoc();
 
@@ -15,7 +15,14 @@
         header("location: login.php");
     }
     else {
-        $_SESSION["user"]=$email;
-        header("location: logged_in.php");        
+        if($row['akses'] == true ) {
+            $_SESSION["admin"]=$email;
+            header("location: product_admin.php");
+        }
+        else{
+            $_SESSION["user"]=$email;
+            header("location: logged_in.php");
+        }
+                
     }
 ?>
